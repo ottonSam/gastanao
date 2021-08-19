@@ -16,8 +16,8 @@ export function SidebarNav() {
       </NavSection>
       
       <NavSection title="IMPORT" >
-        <NavLink icon={RiTableLine} href="/forms">Base table</NavLink>
-        <NavLink icon={RiGitMergeLine} href="/automation">Import tool</NavLink>        
+        <NavLink icon={RiTableLine} href="/sorry">Base table</NavLink>
+        <NavLink icon={RiGitMergeLine} href="/sorry">Import tool</NavLink>        
       </NavSection>
     </Stack>
   );

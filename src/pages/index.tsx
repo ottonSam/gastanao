@@ -1,4 +1,5 @@
 import { Flex, Button, Stack, Box, Divider } from '@chakra-ui/react'
+import Link from 'next/link'
 
 import { Input } from '../components/Form/Input'
 import { Logo } from '../components/Header/Logo'
@@ -32,14 +33,24 @@ export default function SingIn() {
           <Input type="email" name="email" label="E-mail"/>
           <Input type="password" name="password" label="Senha" />
         </Stack>
-        <Button
+        {/* <Button
           types="submit"
           mt="6"
-          colorScheme="pink"
+          colorScheme="orange"
           size="lg"
         >
           Entrar
-        </Button>
+        </Button> */}
+        <Link href="/graphic">
+          <Button
+            types="submit"
+            mt="6"
+            colorScheme="orange"
+            size="lg"
+          >
+            Entrar
+          </Button>
+        </Link>
       </Flex>
     </Flex>
   )
