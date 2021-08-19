@@ -12,7 +12,7 @@ export default function SingIn() {
     >
       <Box maxWidth="700px" p="6" fontSize={["32", "40"]}>
         <Text>
-          Sorry bro this feature hasn't been developed yet. please go back to   
+          Sorry bro this feature hasnt been developed yet. please go back to   
           <Link href="/graphic">
             <Button
               ml="1"
@@ -26,5 +26,5 @@ export default function SingIn() {
         </Text>
       </Box>
     </Flex>
-  )
+  );
 }

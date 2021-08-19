@@ -58,7 +58,7 @@ export default function CreateUser() {
 
               <HStack> 
                 <FormControl>
-                  <FormLabel htmlFor="date">Date "mm-dd-yyy"</FormLabel>
+                  <FormLabel htmlFor="date">Date mm-dd-yyy</FormLabel>
                   <ChakraInput 
                     name="date"
                     id="date"
