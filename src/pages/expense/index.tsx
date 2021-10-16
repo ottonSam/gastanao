@@ -1,5 +1,9 @@
-import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Td, Text, Th, Thead, Tr, useBreakpointValue } from "@chakra-ui/react";
-import { RiAddLine, RiPencilLine} from "react-icons/ri";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/client";
+import { useEffect } from "react";
+
+import { Box, Button, Flex, Heading, Icon, useBreakpointValue } from "@chakra-ui/react";
+import { RiAddLine} from "react-icons/ri";
 import Link from 'next/link';
 
 import { Sidebar } from "../../components/Sidebar";
@@ -10,12 +14,21 @@ import { AllExpenses } from "../../components/Expense/AllExpenses";
 
 export default function UserList() {
 
+  const router = useRouter();
+  const [session] = useSession();
+
+  useEffect(() => {
+    if (!(session)) {
+      router.push('/')
+    }
+  }, [session]);
+
   const isWideVersion = useBreakpointValue({
     base: false,
     lg: true,
   })
 
-  return (
+  return session ? (
     <Box>
       <Header />
 
@@ -69,5 +82,5 @@ export default function UserList() {
         </Box>
       </Flex>
     </Box>
-  );
+  ): null;
 }

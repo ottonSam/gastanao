@@ -1,15 +1,26 @@
-import { Box, Flex, SimpleGrid, } from "@chakra-ui/react";
+import { useRouter } from 'next/router';
+import {  useSession,  } from 'next-auth/client';
+import { Box, Flex, SimpleGrid, Text } from "@chakra-ui/react";
 
 import { Sidebar } from "../../components/Sidebar";
 import { Header } from "../../components/Header";
 import { YearExpenses } from "../../components/Graphic/YearExpenses";
 import { MonthExpenses } from "../../components/Graphic/MonthExpenses";
 import { LastExpenses } from "../../components/Expense/LastExpenses";
+import { useEffect } from 'react';
 
 
 export default function DashBoard() {
+  const router = useRouter();
+  const [session] = useSession();
 
-  return (
+  useEffect(() => {
+    if (!(session)) {
+      router.push('/')
+    }
+  }, [session]);
+
+  return session ? (
     <Flex
       direction="column"
       h="100vh"
@@ -50,5 +61,5 @@ export default function DashBoard() {
         </Flex>
       </Flex>
     </Flex>
-  );
+  ) : null;
 }

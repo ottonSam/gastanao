@@ -1,3 +1,7 @@
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/client";
+import { useEffect } from "react";
+
 import { Box, Button, Divider, Flex, Heading, HStack, SimpleGrid, VStack, Input as ChakraInput, FormControl, FormLabel, Checkbox, Text } from "@chakra-ui/react";
 import Link from 'next/link';
 
@@ -7,7 +11,16 @@ import { Input } from "../../components/Form/Input";
 import React from "react";
 
 export default function CreateUser() {
-  return (
+  const router = useRouter();
+  const [session] = useSession();
+
+  useEffect(() => {
+    if (!(session)) {
+      router.push('/')
+    }
+  }, [session]);
+
+  return session ? (
     <Box>
       <Header />
 
@@ -102,5 +115,5 @@ export default function CreateUser() {
         </Box>
       </Flex>
     </Box>
-  );
+  ) : null;
 }
