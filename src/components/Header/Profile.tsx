@@ -1,5 +1,6 @@
+import { signOut} from 'next-auth/client';
 import { Avatar, Box, Flex, Icon, Link, Text } from "@chakra-ui/react";
-import { RiSettings5Line } from "react-icons/ri";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 
 interface ProfileProps {
   showProfileData?: boolean;
@@ -18,20 +19,24 @@ export function Profile({ showProfileData = true }: ProfileProps) {
         >
           <Text>
             Samuel Ótton
-            {/* <Link
-              href="/settings" 
-              passHref
-              pl="2" 
-              borderLeft="1px" 
-              borderColor="gray.300" 
-              ml="2"  
+            <button 
+              type="button"
+              onClick={() => signOut()}
             >
-              <Icon
-                fontSize="20"
-                as={RiSettings5Line}
-                _hover={{color: "yellow.400", zoom: "1.2"}}
-              />
-            </Link> */}
+              <Link
+                passHref
+                pl="2" 
+                borderLeft="1px" 
+                borderColor="gray.300" 
+                ml="2"  
+              >
+                <Icon
+                  fontSize="20"
+                  as={RiLogoutCircleRLine}
+                  _hover={{color: "red.400", zoom: "1.2"}}
+                />
+              </Link>
+            </button>
           </Text>
           <Text
             color="gray.300"

@@ -1,7 +1,8 @@
+import { signIn } from 'next-auth/client';
 import { Flex, Button, Text, Box } from '@chakra-ui/react'
 import Link from 'next/link'
 
-export default function SingIn() {
+export function SingIn() {
   return (
     <Flex
       w="100vw"
@@ -12,15 +13,16 @@ export default function SingIn() {
     >
       <Box maxWidth="700px" p="6" fontSize={["32", "40"]}>
         <Text>
-          Sorry bro this feature hasnt been developed yet. please go back to   
+          Login to access platform features   
           <Link href="/graphic">
             <Button
               ml="1"
               colorScheme="orange"
               size="lg"
               fontSize="24"
+              onClick={() => signIn('github')}
             >
-              Home page
+              Login with Github
             </Button>
           </Link>
         </Text>

@@ -1,23 +1,14 @@
-import { Text } from '@chakra-ui/react';
-import { signIn, signOut, useSession } from 'next-auth/client';
+import { useSession } from 'next-auth/client';
+import GraphicPage from './graphic';
+import { SingIn } from '../components/SingIn';
 
 
 export default function SingInButton() {
   const [session] = useSession();
 
   return session ? (
-    <button 
-      type="button"
-      onClick={() => signOut()}
-    >
-      <Text>{session.user?.name}</Text>
-    </button>
+    <GraphicPage />
   ) : (
-    <button 
-      type="button"
-      onClick={() => signIn('github')}
-    >
-      singIn with GitHub
-    </button>
+    <SingIn />
   )
 }
